@@ -1,10 +1,10 @@
 <template>
-    <app-header/>
-    <div>
         <div class="container">
-           <router-view></router-view>
+            <app-header/>
+            <div class="main">
+                <router-view></router-view>
+            </div>
         </div>
-    </div>
 </template>
 
 <script>
@@ -22,5 +22,7 @@ export default {
 </script>
 
 <style lang="scss">
-
+    .main {
+        padding-top: 50px;
+    }
 </style>

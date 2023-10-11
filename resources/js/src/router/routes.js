@@ -1,5 +1,5 @@
 import Home from "@/pages/Home.vue";
-import News from "@/pages/News.vue";
+import Contact from "@/pages/Contact.vue";
 
 const routes = [
     {
@@ -7,8 +7,8 @@ const routes = [
         component: Home,
     },
     {
-        path: '/news',
-        component: News,
+        path: '/contact',
+        component: Contact,
     }
 ]
 
