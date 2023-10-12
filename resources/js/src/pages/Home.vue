@@ -15,82 +15,30 @@
             }"
                 :modules="modules"
             >
-                <swiper-slide>
-                    <a href="/" style="background-image: url('/storage/images/1.jpeg');" class="swiper-slide__link">
+                <swiper-slide v-for="post in this.mainPosts" :key="post.id">
+                    <a :href="'/posts/' + post.id"
+                       :style="'background-image: url(' + post.img +')'"
+                       class="swiper-slide__link"
+                    >
                         <div class="swiper-slide__content row">
                             <div class="col-6">
                                 <div class="swiper-slide__categories">
-                                    Life
+                                    {{ post.categories }}
                                 </div>
                                 <div class="swiper-slide__meta meta">
                                     <div class="meta__author">
-                                        <img src="/storage/images/4.jpeg" class="meta__img" alt="Roman">
-                                        Roman
+                                        <img :src=post.authorImg class="meta__img" alt="Roman">
+                                        {{ post.author }}
                                     </div>
                                     <div class="meta__date">
-                                        Октябрь 12, 2023
+                                        {{ post.date }}
                                     </div>
                                 </div>
                                 <h3 class="swiper-slide__title">
-                                    Смысл жизни в ней!
+                                    {{ post.title }}
                                 </h3>
                                 <p class="swiper-slide__desc">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci aperiam asperiores cumque
-                                    debitis distinctio doloribus laudantium
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                </swiper-slide>
-                <swiper-slide>
-                    <a href="/" style="background-image: url('/storage/images/2.jpeg');" class="swiper-slide__link">
-                        <div class="swiper-slide__content row">
-                            <div class="col-6">
-                                <div class="swiper-slide__categories">
-                                    Life
-                                </div>
-                                <div class="swiper-slide__meta meta">
-                                    <div class="meta__author">
-                                        <img src="/storage/images/4.jpeg" class="meta__img" alt="Roman">
-                                        Roman
-                                    </div>
-                                    <div class="meta__date">
-                                        Октябрь 12, 2023
-                                    </div>
-                                </div>
-                                <h3 class="swiper-slide__title">
-                                    Смысл жизни в ней!
-                                </h3>
-                                <p class="swiper-slide__desc">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci aperiam asperiores cumque
-                                    debitis distinctio doloribus laudantium
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                </swiper-slide>
-                <swiper-slide>
-                    <a href="/" style="background-image: url('/storage/images/3.jpeg');" class="swiper-slide__link">
-                        <div class="swiper-slide__content row">
-                            <div class="col-6">
-                                <div class="swiper-slide__categories">
-                                    Life
-                                </div>
-                                <div class="swiper-slide__meta meta">
-                                    <div class="meta__author">
-                                        <img src="/storage/images/4.jpeg" class="meta__img" alt="Roman">
-                                        Roman
-                                    </div>
-                                    <div class="meta__date">
-                                        Октябрь 12, 2023
-                                    </div>
-                                </div>
-                                <h3 class="swiper-slide__title">
-                                    Смысл жизни в ней!
-                                </h3>
-                                <p class="swiper-slide__desc">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci aperiam asperiores cumque
-                                    debitis distinctio doloribus laudantium
+                                    {{ post.desc }}
                                 </p>
                             </div>
                         </div>
@@ -100,16 +48,17 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-9">
+        <div class="col-8">
             <blog-list/>
         </div>
-        <div class="col-3">
-            2
+        <div class="col-4">
+            <AppSidebar class="p-4"></AppSidebar>
         </div>
     </div>
 </template>
 <script>
 import BlogList from "@/components/BlogList.vue";
+import AppSidebar from "@/components/AppSidebar.vue";
 import {Swiper, SwiperSlide} from "swiper/vue";
 import {Autoplay, Pagination } from 'swiper/modules';
 import 'swiper/css';
@@ -120,13 +69,26 @@ export default {
     components: {
         Swiper,
         SwiperSlide,
-        BlogList
+        BlogList,
+        AppSidebar,
     },
     setup() {
         return {
             modules: [Autoplay, Pagination],
         };
     },
+    data(){
+        return {
+            'mainPosts' : [
+                {id: 1, name: 'Жизнь в кайф', desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci aperiam asperiores cumque',
+                    img: "storage/images/photo_2023-04-16_13-20-53.jpg", categories: "Жизнь", author: "Roman", authorImg: "/storage/images/roma.jpg",
+                    date: "Октрябрь 28, 2023"},
+                {id: 2, name: 'Жизнь в кайф2', desc: '222 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci aperiam asperiores cumque',
+                    img: "storage/images/photo_2023-04-16_13-20-53.jpg", categories: "Красота", author: "Roman", authorImg: "/storage/images/roma.jpg",
+                    date: "Октрябрь 28, 2023"},
+            ],
+        }
+    }
 }
 </script>
 

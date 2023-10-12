@@ -23,6 +23,6 @@ export default {
 
 <style lang="scss">
     .main {
-        padding-top: 50px;
+        padding-top: 30px;
     }
 </style>

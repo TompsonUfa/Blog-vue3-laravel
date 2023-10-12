@@ -1,24 +1,23 @@
 <template>
     <article class="post">
         <div class="post__header">
-            <img src="/storage/images/3.jpeg" alt="post" class="post__img">
+            <img :src="post.img" :alt="post.title" class="post__img">
         </div>
         <div class="post__content">
             <div class="post__meta">
-                <span>Roman</span>, 28 Октябрь, 2023
+                <span>{{ post.author }}</span>, {{post.date}}
             </div>
-            <a href="/" class="post__link">
+            <a :href="'/posts/' + post.id" class="post__link">
                 <h2 class="post__title">
-                    Жить как хочется
+                    {{post.title}}
                 </h2>
             </a>
             <p class="post__desc">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Consequuntur dolorum ea ex fuga magni non nostrum
+                {{post.desc}}
             </p>
             <div class="post__meta post__meta-two">
                 <div class="post__categories">
-                    Life
+                    {{post.categories}}
                 </div>
             </div>
         </div>
@@ -27,14 +26,17 @@
 
 <script>
 export default {
-    name: "BlogPost"
+    name: "BlogPost",
+    props: {
+        'post': Array,
+    }
 }
 </script>
 
 <style scoped lang="scss">
     .post {
         box-shadow: 0px 15px 45px -9px rgba(0,0,0,.2);
-        margin-bottom: 14px;
+        margin-bottom: calc(var(--bs-gutter-x) * 1);
         &__header{
             width: 100%;
             height: 100%;
