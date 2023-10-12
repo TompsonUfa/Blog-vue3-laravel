@@ -1,102 +1,115 @@
 <template>
-    <swiper
-            :slides-per-view="1"
-            :space-between="5"
-            :loop="true"
-            :pagination = "{
+    <div class="row">
+        <div class="col-12">
+            <swiper
+                :slides-per-view="1"
+                :space-between="5"
+                :loop="true"
+                :pagination = "{
                 clickable: true,
 
             }"
-            :autoplay="{
+                :autoplay="{
                 delay: 2500,
                 disableOnInteraction: false,
             }"
-            :modules="modules"
-        >
-            <swiper-slide>
-                <a href="/" style="background-image: url('/storage/images/photo_2023-04-16_13-20-53.jpg');" class="swiper-slide__link">
-                    <div class="swiper-slide__content row">
-                        <div class="col-6">
-                            <div class="swiper-slide__categories">
-                                Life
-                            </div>
-                            <div class="swiper-slide__meta meta">
+                :modules="modules"
+            >
+                <swiper-slide>
+                    <a href="/" style="background-image: url('/storage/images/1.jpeg');" class="swiper-slide__link">
+                        <div class="swiper-slide__content row">
+                            <div class="col-6">
+                                <div class="swiper-slide__categories">
+                                    Life
+                                </div>
+                                <div class="swiper-slide__meta meta">
                                     <div class="meta__author">
-                                        <img src="/storage/images/yZOglYdzQSo.jpg" class="meta__img" alt="Roman">
+                                        <img src="/storage/images/4.jpeg" class="meta__img" alt="Roman">
                                         Roman
                                     </div>
                                     <div class="meta__date">
                                         Октябрь 12, 2023
                                     </div>
-                            </div>
-                            <h3 class="swiper-slide__title">
-                                Смысл жизни в ней!
-                            </h3>
-                            <p class="swiper-slide__desc">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci aperiam asperiores cumque
-                                debitis distinctio doloribus laudantium
-                            </p>
-                        </div>
-                    </div>
-                </a>
-            </swiper-slide>
-            <swiper-slide>
-            <a href="/" style="background-image: url('/storage/images/photo_2022-08-29_15-13-04.jpg');" class="swiper-slide__link">
-                <div class="swiper-slide__content row">
-                    <div class="col-6">
-                        <div class="swiper-slide__categories">
-                            Life
-                        </div>
-                        <div class="swiper-slide__meta meta">
-                            <div class="meta__author">
-                                <img src="/storage/images/yZOglYdzQSo.jpg" class="meta__img" alt="Roman">
-                                Roman
-                            </div>
-                            <div class="meta__date">
-                                Октябрь 12, 2023
+                                </div>
+                                <h3 class="swiper-slide__title">
+                                    Смысл жизни в ней!
+                                </h3>
+                                <p class="swiper-slide__desc">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci aperiam asperiores cumque
+                                    debitis distinctio doloribus laudantium
+                                </p>
                             </div>
                         </div>
-                        <h3 class="swiper-slide__title">
-                            Смысл жизни в ней!
-                        </h3>
-                        <p class="swiper-slide__desc">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci aperiam asperiores cumque
-                            debitis distinctio doloribus laudantium
-                        </p>
-                    </div>
-                </div>
-            </a>
-        </swiper-slide>
-            <swiper-slide>
-            <a href="/" style="background-image: url('/storage/images/photo_2022-08-29_15-13-04.jpg');" class="swiper-slide__link">
-                <div class="swiper-slide__content row">
-                    <div class="col-6">
-                        <div class="swiper-slide__categories">
-                            Life
-                        </div>
-                        <div class="swiper-slide__meta meta">
-                            <div class="meta__author">
-                                <img src="/storage/images/yZOglYdzQSo.jpg" class="meta__img" alt="Roman">
-                                Roman
+                    </a>
+                </swiper-slide>
+                <swiper-slide>
+                    <a href="/" style="background-image: url('/storage/images/2.jpeg');" class="swiper-slide__link">
+                        <div class="swiper-slide__content row">
+                            <div class="col-6">
+                                <div class="swiper-slide__categories">
+                                    Life
+                                </div>
+                                <div class="swiper-slide__meta meta">
+                                    <div class="meta__author">
+                                        <img src="/storage/images/4.jpeg" class="meta__img" alt="Roman">
+                                        Roman
+                                    </div>
+                                    <div class="meta__date">
+                                        Октябрь 12, 2023
+                                    </div>
+                                </div>
+                                <h3 class="swiper-slide__title">
+                                    Смысл жизни в ней!
+                                </h3>
+                                <p class="swiper-slide__desc">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci aperiam asperiores cumque
+                                    debitis distinctio doloribus laudantium
+                                </p>
                             </div>
-                            <div class="meta__date">
-                                Октябрь 12, 2023
+                        </div>
+                    </a>
+                </swiper-slide>
+                <swiper-slide>
+                    <a href="/" style="background-image: url('/storage/images/3.jpeg');" class="swiper-slide__link">
+                        <div class="swiper-slide__content row">
+                            <div class="col-6">
+                                <div class="swiper-slide__categories">
+                                    Life
+                                </div>
+                                <div class="swiper-slide__meta meta">
+                                    <div class="meta__author">
+                                        <img src="/storage/images/4.jpeg" class="meta__img" alt="Roman">
+                                        Roman
+                                    </div>
+                                    <div class="meta__date">
+                                        Октябрь 12, 2023
+                                    </div>
+                                </div>
+                                <h3 class="swiper-slide__title">
+                                    Смысл жизни в ней!
+                                </h3>
+                                <p class="swiper-slide__desc">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci aperiam asperiores cumque
+                                    debitis distinctio doloribus laudantium
+                                </p>
                             </div>
                         </div>
-                        <h3 class="swiper-slide__title">
-                            Смысл жизни в ней!
-                        </h3>
-                        <p class="swiper-slide__desc">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci aperiam asperiores cumque
-                            debitis distinctio doloribus laudantium
-                        </p>
-                    </div>
-                </div>
-            </a>
-        </swiper-slide>
-        </swiper>
+                    </a>
+                </swiper-slide>
+            </swiper>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-9">
+            <blog-list/>
+        </div>
+        <div class="col-3">
+            2
+        </div>
+    </div>
 </template>
 <script>
+import BlogList from "@/components/BlogList.vue";
 import {Swiper, SwiperSlide} from "swiper/vue";
 import {Autoplay, Pagination } from 'swiper/modules';
 import 'swiper/css';
@@ -107,6 +120,7 @@ export default {
     components: {
         Swiper,
         SwiperSlide,
+        BlogList
     },
     setup() {
         return {
@@ -128,7 +142,7 @@ export default {
             padding: 30px 80px;
             position: relative;
             margin-bottom: 30px;
-            height: 650px;
+            height: 450px;
             text-decoration: none;
         }
         &__categories{
