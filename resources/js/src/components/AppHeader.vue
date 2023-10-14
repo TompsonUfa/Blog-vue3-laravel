@@ -35,6 +35,9 @@
                                 <li class="nav-item">
                                     <router-link to="/contact" class="nav-link">Контакты</router-link>
                                 </li>
+                                <li class="nav-item">
+                                    <router-link to="/admin" class="nav-link">Admin</router-link>
+                                </li>
                             </ul>
                             <form class="d-flex" role="search">
                                 <input class="form-control me-2" type="search" placeholder="Парижские сны..." aria-label="Search">
