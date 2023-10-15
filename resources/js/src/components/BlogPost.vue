@@ -37,14 +37,20 @@ export default {
     .post {
         box-shadow: 0px 15px 45px -9px rgba(0,0,0,.2);
         margin-bottom: calc(var(--bs-gutter-x) * 1);
+        &:hover &__img{
+            transform: scale(1.2);
+        }
         &__header{
             width: 100%;
-            height: 100%;
+            height: 250px;
+            max-height: 250px;
+            overflow: hidden;
         }
         &__img{
             width: inherit;
             height: inherit;
             object-fit: cover;
+            transition: 0.5s ease;
         }
         &__content {
             padding-left: 13%;

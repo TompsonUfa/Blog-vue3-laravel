@@ -1,6 +1,6 @@
 <template>
     <div class="popular-post row">
-        <div class="col-3">
+        <div class="col-3 p-0">
             <div class="popular-post__thumb">
                 <img :src=post.img :alt=post.title class="popular-post__img">
             </div>
@@ -43,12 +43,13 @@ export default {
         align-items: center;
     }
     &__img{
-        width: 65px;
-        height: 65px;
+        width: 55px;
+        height: 55px;
         border-radius: 50%;
         object-fit: cover;
     }
     &__meta {
+        font-size: 14px;
         color: #8d8d8d;
         text-transform: uppercase;
     }
@@ -61,7 +62,7 @@ export default {
         }
     }
     &__title {
-        font-size: 20px;
+        font-size: 17px;
     }
 }
 </style>

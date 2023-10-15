@@ -3,10 +3,10 @@
         <app-header/>
         <div class="main">
             <div class="row">
-                <div class="col-8">
+                <div class="col-9">
                     <router-view></router-view>
                 </div>
-                <div class="col-4">
+                <div class="col-3">
                     <AppSidebar class="p-4"></AppSidebar>
                 </div>
             </div>

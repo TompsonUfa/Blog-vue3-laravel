@@ -30,7 +30,7 @@ export default {
 
 <style lang="scss">
     .about {
-        padding: 25px 40px;
+        padding: 75px;
         background-color: #fff;
         box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 

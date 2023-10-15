@@ -28,7 +28,8 @@ import PopularPost from "@/components/PopularPost.vue";
 <style scoped lang="scss">
     .popular {
         &__title {
-            margin-bottom: 25px;
+            font-size: 20px;
+            margin-bottom: 20px;
         }
     }
 </style>

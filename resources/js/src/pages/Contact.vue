@@ -2,7 +2,7 @@
     <div class="contact">
         <div class="row">
             <div class="col-12">
-                <h1 class="contact__title">Свяжитесь со мной</h1>
+                <h2 class="contact__title mb-4 text-center">Свяжитесь со мной</h2>
             </div>
             <div class="col-12">
                 <form class="contact__form">
@@ -39,7 +39,7 @@ export default {
 
 <style scoped lang="scss">
     .contact{
-        padding: 25px 40px;
+        padding: 75px;
         background-color: #fff;
         box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     }

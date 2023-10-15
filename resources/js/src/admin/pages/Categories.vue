@@ -18,13 +18,17 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td></td>
-                            <td></td>
+                        <tr v-for="(category, index) in categories" :key="category.id">
+                            <td>
+                                {{index + 1}}
+                            </td>
+                            <td>
+                                {{category.title}}
+                            </td>
                             <td>
                                 <div class="d-flex gap-3 justify-content-center">
                                     <div class="btn btn-primary">Редактировать</div>
-                                    <div class="btn btn-danger">Удалить</div>
+                                    <div class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal-remove">Удалить</div>
                                 </div>
                             </td>
                         </tr>
@@ -34,14 +38,28 @@
             </div>
         </div>
     </div>
+    <ModalRemove></ModalRemove>
 </template>
 
 <script>
-
+import ModalRemove from "@/admin/components/ModalRemove.vue";
+import {mapActions, mapGetters} from "vuex";
 
 export default {
     name: "Categories",
+    components:{
+        ModalRemove,
+    },
+    computed:{
+      ...mapGetters(['categories']),
+    },
+    methods: {
+        ...mapActions(['getCategories']),
 
+    },
+    mounted() {
+        this.getCategories();
+    }
 }
 </script>
 

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +15,10 @@ use App\Http\Controllers\AboutController;
 |
 */
 
-Route::get('/data/about', [AboutController::class, 'index']);
+Route::prefix('data')->group(function (){
+    Route::get('/categories', [CategoryController::class, 'index']);
+    Route::get('/about', [AboutController::class, 'index']);
+});
 
 Route::view('{any?}', 'app')->where('any', '.*');
 
