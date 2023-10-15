@@ -5,3 +5,8 @@
     --first-color-light: #AFA5D9;
     --z-fixed: 100;
 }
+
+.btn {
+    background: var(--first-color) !important;
+    border: 1px solid var(--first-color) !important;
+}

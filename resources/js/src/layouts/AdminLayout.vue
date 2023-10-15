@@ -22,10 +22,21 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<style  lang="scss">
+
     .content {
         padding: 20px 0;
         margin: var(--header-height) 0 0 var(--nav-width);
+
+        &__box{
+            background-color: #fff;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+            padding: 30px;
+            border-radius: 10px;
+        }
+        &__title {
+            margin-bottom: 30px;
+        }
     }
     @media screen and (max-width: 992px) {
         .content{

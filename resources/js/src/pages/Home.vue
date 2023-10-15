@@ -48,11 +48,8 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-8">
+        <div class="col-12">
             <blog-list/>
-        </div>
-        <div class="col-4">
-            <AppSidebar class="p-4"></AppSidebar>
         </div>
     </div>
 </template>
@@ -81,10 +78,10 @@ export default {
         return {
             'mainPosts' : [
                 {id: 1, name: 'Жизнь в кайф', desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci aperiam asperiores cumque',
-                    img: "storage/images/photo_2023-04-16_13-20-53.jpg", categories: "Жизнь", author: "Roman", authorImg: "/storage/images/roma.jpg",
+                    img: "storage/images/1.jpg", categories: "Жизнь", author: "Roman", authorImg: "/storage/images/roma.jpg",
                     date: "Октрябрь 28, 2023"},
                 {id: 2, name: 'Жизнь в кайф2', desc: '222 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci aperiam asperiores cumque',
-                    img: "storage/images/photo_2023-04-16_13-20-53.jpg", categories: "Красота", author: "Roman", authorImg: "/storage/images/roma.jpg",
+                    img: "storage/images/2.jpg", categories: "Красота", author: "Roman", authorImg: "/storage/images/roma.jpg",
                     date: "Октрябрь 28, 2023"},
             ],
         }

@@ -2,7 +2,7 @@
 import PublicLayout from "@/layouts/PublicLayout.vue";
 import Home from "@/pages/Home.vue";
 import Contact from "@/pages/Contact.vue";
-
+import About from "@/pages/About.vue"
 //admin
 import AdminLayout from "@/layouts/AdminLayout.vue";
 import AdminAbout from "@/admin/pages/About.vue";
@@ -23,6 +23,11 @@ const routes = [
             {
                 path: '/contact',
                 component: Contact,
+            }
+            ,
+            {
+                path: '/about',
+                component: About,
             }
         ]
     },

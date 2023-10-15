@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AboutController;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,8 +13,10 @@ use App\Http\Controllers\AboutController;
 |
 */
 
-Route::get('/data/about', [AboutController::class, 'index']);
+Route::prefix('admin')->group(function (){
 
-Route::view('{any?}', 'app')->where('any', '.*');
+    Route::post('/data/about', [AboutController::class, 'update']);
+
+});
 
 

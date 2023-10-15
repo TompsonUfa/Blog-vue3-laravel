@@ -1,13 +1,15 @@
 <template>
-    <div>
-        <h1>Админка</h1>
-        <div>Контакты</div>
+    <div class="content__box">
+        <h1 class="content__title">Контакты</h1>
+
     </div>
 </template>
 
 <script>
+
+
 export default {
-    name: "Contact"
+    name: "Contact",
 }
 </script>
 
