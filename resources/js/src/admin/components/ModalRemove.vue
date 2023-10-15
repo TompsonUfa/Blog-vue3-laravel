@@ -3,14 +3,14 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Удалить</h1>
+                    <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Удалить запись</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    Вы действительно хотите удалить <slot></slot>
+                    <p v-if="item">Вы уверены, что хотите удалить "{{ item.title}}"?</p>
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-primary">Удалить</button>
+                    <button class="btn btn-primary" @click="$emit('deleteItem')" data-bs-dismiss="modal">Удалить</button>
                 </div>
             </div>
         </div>
@@ -19,7 +19,11 @@
 
 <script>
 export default {
-    name: "ModalRemove"
+    name: "ModalRemove",
+    props: {
+        item : Object,
+    },
+    emits: ['deleteItem']
 }
 </script>
 

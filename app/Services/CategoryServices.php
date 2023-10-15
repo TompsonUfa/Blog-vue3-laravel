@@ -7,4 +7,8 @@ class CategoryServices {
     public function index(){
         return Category::all();
     }
+
+    public function destroy($id):void{
+      Category::find($id)->delete();
+    }
 }

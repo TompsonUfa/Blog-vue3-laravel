@@ -12,6 +12,17 @@ export default {
                     console.log('error: ' + err)
                 })
         },
+        deleteCategory(ctx, item) {
+            axios
+                .delete('/categories/' + item.id)
+                .then(res =>{
+                    ctx.dispatch('getCategories');
+                })
+                .catch(err => {
+                    console.log('error: ' + err)
+                })
+
+        }
     },
     mutations: {
         updateCategories(state, data){

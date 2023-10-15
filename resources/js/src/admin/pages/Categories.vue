@@ -28,7 +28,7 @@
                             <td>
                                 <div class="d-flex gap-3 justify-content-center">
                                     <div class="btn btn-primary">Редактировать</div>
-                                    <div class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal-remove">Удалить</div>
+                                    <div class="btn btn-danger" @click="showDeleteModal(category)">Удалить</div>
                                 </div>
                             </td>
                         </tr>
@@ -38,12 +38,13 @@
             </div>
         </div>
     </div>
-    <ModalRemove></ModalRemove>
+    <ModalRemove @close-modal="closeModal" @delete-item="deleteItem" :item=selectedItem :src="'categories'"></ModalRemove>
 </template>
 
 <script>
 import ModalRemove from "@/admin/components/ModalRemove.vue";
 import {mapActions, mapGetters} from "vuex";
+import { Modal } from 'bootstrap'
 
 export default {
     name: "Categories",
@@ -53,9 +54,21 @@ export default {
     computed:{
       ...mapGetters(['categories']),
     },
+    data(){
+        return{
+            selectedItem: null,
+        }
+    },
     methods: {
-        ...mapActions(['getCategories']),
-
+        ...mapActions(['getCategories', 'deleteCategory']),
+        showDeleteModal(item){
+           this.selectedItem = item;
+           const myModal = new Modal(document.getElementById('modal-remove'))
+           myModal.show()
+        },
+        deleteItem(){
+            this.deleteCategory(this.selectedItem);
+        },
     },
     mounted() {
         this.getCategories();

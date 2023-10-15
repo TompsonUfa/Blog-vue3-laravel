@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\CategoryController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,10 +14,11 @@ use App\Http\Controllers\AboutController;
 |
 */
 
-Route::prefix('admin')->group(function (){
 
-    Route::post('/data/about', [AboutController::class, 'update']);
 
-});
+Route::post('/about', [AboutController::class, 'update']);
+
+Route::delete('/categories/{id}', [CategoryController::class, 'destroy']);
+
 
 

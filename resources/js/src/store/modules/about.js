@@ -14,7 +14,7 @@ export default {
         },
         updateAbout(ctx, data){
             axios
-                .post('/admin/data/about', {'data': data})
+                .post('/about', {'data': data})
                 .then(res => {
                     ctx.commit('updateAbout', data)
                 })

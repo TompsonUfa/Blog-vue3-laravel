@@ -12,4 +12,8 @@ class CategoryController extends Controller
         $categories = $services->index();
         return response()->json(['categories'=> $categories], 200);
     }
+    public function destroy($id, CategoryServices $services){
+        $services->destroy($id);
+        return response()->json(['success' => "Запись удалена"], 200);
+    }
 }
