@@ -14,10 +14,16 @@ class CategoryController extends Controller
     }
     public function store(Request $request, CategoryServices $services){
         $category = $request->item;
-        return $services->store($category);
+        $services->store($category);
+        return response()->json(['success' => "Запись создана"], 200);
     }
     public function destroy($id, CategoryServices $services){
         $services->destroy($id);
         return response()->json(['success' => "Запись удалена"], 200);
+    }
+    public function update($id, Request $request, CategoryServices $services){
+        $newValue = $request->newValue;
+        $services->update($id, $newValue);
+        return response()->json(['success' => "Запись обновлена"], 200);
     }
 }

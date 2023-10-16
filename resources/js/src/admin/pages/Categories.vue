@@ -27,7 +27,7 @@
                             </td>
                             <td>
                                 <div class="d-flex gap-3 justify-content-center">
-                                    <div class="btn btn-primary">Редактировать</div>
+                                    <div class="btn btn-primary" @click="showEditModal(category)">Редактировать</div>
                                     <div class="btn btn-danger" @click="showDeleteModal(category)">Удалить</div>
                                 </div>
                             </td>
@@ -38,9 +38,9 @@
             </div>
         </div>
     </div>
-    <ModalRemove @delete-item="deleteItem" :item=selectedItem></ModalRemove>
+    <ModalRemove @delete-item="deleteItem" :removeModal="removeModal" :item=selectedItem></ModalRemove>
     <ModalAdd @add-item="addItem" :addModal="addModal"></ModalAdd>
-    <ModalEdit :item=selectedItem></ModalEdit>
+    <ModalEdit @edit-item="editItem" :editModal="editModal" :item=selectedItem></ModalEdit>
 </template>
 
 <script>
@@ -69,7 +69,7 @@ export default {
         }
     },
     methods: {
-        ...mapActions(['getCategories', 'deleteCategory', 'addCategory']),
+        ...mapActions(['deleteCategory', 'addCategory', 'editCategory']),
         showDeleteModal(item){
            this.selectedItem = item;
            this.removeModal.toggle();
@@ -77,18 +77,22 @@ export default {
         showAddModal(){
             this.addModal.toggle()
         },
-        showEditModal(){
+        showEditModal(item){
+            this.selectedItem = item;
             this.editModal.toggle();
         },
         deleteItem(){
             this.deleteCategory(this.selectedItem);
+            this.selectedItem = null;
         },
         addItem(item){
             this.addCategory(item);
+        },
+        editItem(item){
+            this.editCategory(item);
         }
     },
     mounted() {
-        this.getCategories();
         this.removeModal = new Modal(document.getElementById('modal-remove'))
         this.addModal = new Modal(document.getElementById('modal-add'));
         this.editModal = new Modal(document.getElementById('modal-edit'));

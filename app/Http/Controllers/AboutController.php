@@ -12,8 +12,8 @@ class AboutController extends Controller
         return response()->json(['about' => $data], 200);
     }
     public function update(Request $request, AboutServices $services){
-       $data = $request['data'];
-      $services->createOrUpdate($data);
+        $data = $request['data'];
+        $services->createOrUpdate($data);
         return response()->json(['success' => "Данные обновлены"],200);
     }
 }

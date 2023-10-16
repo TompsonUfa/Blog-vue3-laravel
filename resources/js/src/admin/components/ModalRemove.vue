@@ -10,7 +10,7 @@
                     <p v-if="item">Вы уверены, что хотите удалить "{{ item.title}}"?</p>
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-primary" @click="$emit('deleteItem')" data-bs-dismiss="modal">Удалить</button>
+                    <button class="btn btn-primary" @click="deleteItem">Удалить</button>
                 </div>
             </div>
         </div>
@@ -22,6 +22,13 @@ export default {
     name: "ModalRemove",
     props: {
         item : Object,
+        removeModal: Object,
+    },
+    methods: {
+        deleteItem(){
+            this.$emit('deleteItem');
+            this.removeModal.toggle();
+        }
     },
     emits: ['deleteItem']
 }

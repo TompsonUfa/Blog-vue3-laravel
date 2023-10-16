@@ -32,6 +32,16 @@ export default {
                 .catch(err => {
                     console.log('error: ' + err)
                 })
+        },
+        editCategory(ctx, item){
+            axios
+                .put('/categories/' + item.id, {'newValue':item.newValue})
+                .then(res => {
+                    ctx.dispatch('getCategories');
+                })
+                .catch(err => {
+                    console.log('error: ' + err)
+                })
         }
     },
     mutations: {

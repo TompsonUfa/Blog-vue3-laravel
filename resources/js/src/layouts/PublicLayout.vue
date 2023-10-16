@@ -18,12 +18,19 @@
 import AppHeader from "@/components/AppHeader.vue";
 import AppSidebar from "@/components/AppSidebar.vue";
 import AppLoader from "@/components/AppLoader.vue";
+import {mapActions} from "vuex";
 
 export default {
     components: {
         AppSidebar,
         AppHeader,
     },
+    methods: {
+        ...mapActions(['getCategories']),
+    },
+    mounted() {
+       this.getCategories();
+    }
 }
 </script>
 <style scoped lang="scss">

@@ -8,10 +8,10 @@
                 </div>
                 <div class="modal-body">
                     <label for="exampleFormControlInput" class="form-label">Название</label>
-                    <input v-model="value" :class='!valid?"is-invalid":null' type="text" id="exampleFormControlInput" class="form-control">
+                    <input :class='!valid?"is-invalid":null' type="text" id="exampleFormControlInput" class="form-control" v-model=this.value>
                 </div>
                 <div class="modal-footer">
-                    <button @click="addItem" class="btn btn-primary">Добавить</button>
+                    <button @click="editItem" class="btn btn-primary">Изменить</button>
                 </div>
             </div>
         </div>
@@ -20,7 +20,7 @@
 
 <script>
 export default {
-    name: "ModalAdd",
+    name: "ModalEdit",
     data(){
         return {
             value: null,
@@ -28,21 +28,29 @@ export default {
         }
     },
     props: {
-      addModal : Object,
+      editModal : Object, item: Object,
     },
+    emits: [
+        'editItem'
+    ],
     methods: {
-        addItem()
+        editItem()
         {
             if (!this.value){
                 this.valid = false;
             } else {
-
+                this.$emit('editItem', {'id': this.item.id, 'newValue': this.value});
                 this.value = null;
                 this.valid = true;
-                this.addModal.toggle();
+                this.editModal.toggle();
             }
         }
-    }
+    },
+    watch: {
+        item(newVal, oldVal) {
+            this.value = newVal.title;
+        }
+    },
 }
 </script>
 

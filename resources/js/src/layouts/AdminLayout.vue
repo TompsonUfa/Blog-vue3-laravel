@@ -13,11 +13,18 @@
 <script>
 import AdminHeader from "@/admin/components/AdminHeader.vue";
 import AdminSidebar from "@/admin/components/AdminSidebar.vue";
+import {mapActions} from "vuex";
 export default {
     name: "AdminLayout.vue",
     components: {
         AdminSidebar,
         AdminHeader
+    },
+    methods: {
+      ...mapActions(['getCategories']),
+    },
+    mounted() {
+        this.getCategories();
     }
 }
 </script>

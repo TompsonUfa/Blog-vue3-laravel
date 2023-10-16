@@ -24,9 +24,10 @@
                                         Категории
                                     </a>
                                     <ul class="dropdown-menu">
-                                        <li><router-link to="/categories/technologies" class="dropdown-item">Технологии</router-link></li>
-                                        <li><router-link to="/categories/life" class="dropdown-item">Жизнь</router-link></li>
-                                        <li><router-link to="/categories/cooking" class="dropdown-item">Кулинария</router-link></li>
+                                        <li><router-link :to='"/categories/" + category.slug' class="dropdown-item"
+                                                         v-for="category in categories" :key="category.id">
+                                            {{category.title}}
+                                        </router-link></li>
                                     </ul>
                                 </li>
                                 <li class="nav-item">
@@ -52,8 +53,13 @@
 </template>
 
 <script>
+import {mapGetters} from "vuex";
+
 export default {
-    name: "AppHeader"
+    name: "AppHeader",
+    computed: {
+        ...mapGetters(['categories']),
+    },
 }
 </script>
 

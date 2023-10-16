@@ -10,19 +10,20 @@ class CategoryServices {
     }
 
     public function store($category) {
-        $categoryBd = Category::where('title', $category)->first();
-        if($categoryBd){
-            return response()->json(['error' => "Запись уже создана"], 409);
-        } else {
-            Category::create([
-                'title' => $category,
-                'slug' => Str::slug($category, '-'),
-            ]);
-            return response()->json(['success' => "Запись создана"], 200);
-        }
+        Category::create([
+            'title' => $category,
+            'slug' => Str::slug($category, '-'),
+        ]);
     }
 
-    public function destroy($id):void{
-      Category::find($id)->delete();
+    public function destroy($id){
+        Category::find($id)->delete();
+    }
+
+    public function update($id, $newValue){
+       Category::find($id)->update([
+           'title' => $newValue,
+           'slug' => Str::slug($newValue, '-'),
+       ]);
     }
 }

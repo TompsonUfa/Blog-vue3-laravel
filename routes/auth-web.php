@@ -20,6 +20,7 @@ Route::post('/about', [AboutController::class, 'update']);
 
 Route::post('/categories', [CategoryController::class, 'store']);
 Route::delete('/categories/{id}', [CategoryController::class, 'destroy']);
+Route::put('/categories/{id}', [CategoryController::class, 'update']);
 
 
 

@@ -30,6 +30,9 @@ export default {
     props: {
       addModal : Object,
     },
+    emits: [
+        'addItem'
+    ],
     methods: {
         addItem()
         {
