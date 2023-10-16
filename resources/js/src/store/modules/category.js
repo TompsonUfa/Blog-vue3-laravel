@@ -22,6 +22,16 @@ export default {
                     console.log('error: ' + err)
                 })
 
+        },
+        addCategory(ctx, item){
+            axios
+                .post('/categories', {'item': item})
+                .then(res => {
+                    ctx.dispatch('getCategories');
+                })
+                .catch(err => {
+                    console.log('error: ' + err)
+                })
         }
     },
     mutations: {

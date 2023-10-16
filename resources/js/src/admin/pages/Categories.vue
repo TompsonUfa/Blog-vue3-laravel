@@ -5,7 +5,7 @@
                 <h1 class="content__title">Категории</h1>
             </div>
             <div class="col-12">
-                <button class="btn btn-success mb-3">Создать</button>
+                <button class="btn btn-success mb-3" @click="showAddModal">Создать</button>
             </div>
             <div class="col-12">
                 <div class="table-responsive">
@@ -38,18 +38,24 @@
             </div>
         </div>
     </div>
-    <ModalRemove @close-modal="closeModal" @delete-item="deleteItem" :item=selectedItem :src="'categories'"></ModalRemove>
+    <ModalRemove @delete-item="deleteItem" :item=selectedItem></ModalRemove>
+    <ModalAdd @add-item="addItem" :addModal="addModal"></ModalAdd>
+    <ModalEdit :item=selectedItem></ModalEdit>
 </template>
 
 <script>
 import ModalRemove from "@/admin/components/ModalRemove.vue";
+import ModalAdd from "@/admin/components/ModalAdd.vue";
+import ModalEdit from "@/admin/components/ModalEdit.vue";
 import {mapActions, mapGetters} from "vuex";
 import { Modal } from 'bootstrap'
 
 export default {
     name: "Categories",
     components:{
+        ModalAdd,
         ModalRemove,
+        ModalEdit
     },
     computed:{
       ...mapGetters(['categories']),
@@ -57,21 +63,35 @@ export default {
     data(){
         return{
             selectedItem: null,
+            addModal: null,
+            editModal: null,
+            removeModal: null,
         }
     },
     methods: {
-        ...mapActions(['getCategories', 'deleteCategory']),
+        ...mapActions(['getCategories', 'deleteCategory', 'addCategory']),
         showDeleteModal(item){
            this.selectedItem = item;
-           const myModal = new Modal(document.getElementById('modal-remove'))
-           myModal.show()
+           this.removeModal.toggle();
+        },
+        showAddModal(){
+            this.addModal.toggle()
+        },
+        showEditModal(){
+            this.editModal.toggle();
         },
         deleteItem(){
             this.deleteCategory(this.selectedItem);
         },
+        addItem(item){
+            this.addCategory(item);
+        }
     },
     mounted() {
         this.getCategories();
+        this.removeModal = new Modal(document.getElementById('modal-remove'))
+        this.addModal = new Modal(document.getElementById('modal-add'));
+        this.editModal = new Modal(document.getElementById('modal-edit'));
     }
 }
 </script>

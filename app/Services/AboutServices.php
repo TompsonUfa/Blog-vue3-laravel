@@ -7,7 +7,7 @@ class AboutServices {
     public function getAbout(): string{
         return About::first();
     }
-    public function createOrUpdate($data) {
+    public function createOrUpdate($data):void {
         $about = About::first();
         if(isset($about)){
             $id = $about['id'];
